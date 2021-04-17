@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- BARRA DE NAVEGAÇÃO E MENU -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <button type="button" class="navbar-toggler" >
+            <img src="assets/img/hamburger.gif" alt="Menu" >
+        </button>
+        <a href="#" class="navbar-brand flex-grow-1">
+            <img src="assets/img/logo.png" alt="Netflix" height="30" class="my-1 mx-2">
+        </a>
+        <form class="form-inline">
+            <input type="search" class="form-control" placeholder="Busca">   
+        </form>
+        <ul class="list-unstyled font-weight-bold">
+            <li class="media media-avatar">
+                <img src="assets/img/avatar.jpg" alt="Avatar" class="mr-2">
+                <div class="media-body">
+                    <p class="h6 m-0">Jaison Dallabrida</p>
+                    <small>Trocar de perfil</small>
+                </div>
+            </li>
+            <li class="divider"></li>
+            <li><a href="" class="text-reset">Início</a></li>
+            <li><a href="" class="text-reset">Minha lista</a></li>
+            <li><a href="" class="text-reset">Séries de ação e aventura</a></li>
+            <li><a href="" class="text-reset">Ação e aventura</a></li>
+            <li><a href="" class="text-reset">Séries Teen</a></li>
+            <li><a href="" class="text-reset">Filmes africanos</a></li>
+            <li><a href="" class="text-reset">Séries da América Latina</a></li>
+            <li><a href="" class="text-reset">Filmes de Anime</a></li>
+
+        </ul>
+    </nav>
+
+    <!--FULL-BANNER-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 full-banner text-white">
+                <div class="p-4">
+                    <h1 class="h3">Vingadores: Ultimato</h1>
+                    <small class="d-flex my-2">
+                        <span class="mr-3">2019</span>
+                        <span class="mr-3">12</span>
+                        <span>182 min</span>
+                    </small>
+                    <a href="#" class="btn btn-primary text-uppercase font-weight-bold">Assistir</a>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-12">
+                <div class="p-3 list-titles">
+                    <h2 class="h4">Adicionados recentemente</h2>
+                    <div class="d-flex flex-nowrap overflow-hidden">
+                        <a href="" class="px-1 my-3"><img src="assets/img/capitao-america-o-primeiro-vingador.jpg" alt="" class="w-100"></a>
+                        <a href="" class="px-1 my-3"><img src="assets/img/eu-sou-a-lenda.jpg" alt="" class="w-100"></a>
+                        <a href="" class="px-1 my-3"><img src="assets/img/greys-anatomy.jpg" alt="" class="w-100"></a>
+                        <a href="" class="px-1 my-3"><img src="assets/img/homem-de-ferro-2.jpg" alt="" class="w-100"></a>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //expande e contrai o menu do hamburguer.gif
+        const btn = document.querySelector('.navbar-toggler');
+        const navbar = document.querySelector('.navbar');
+        btn.addEventListener('click', e=>
+        {
+            navbar.classList.toggle('sidebar-open');
+            //Criação do backdrop dinamicamente para esconder a página somente quando o menu estiver aparecendo.
+            if(navbar.classlist.contains('sidebar-open'))
+            {
+
+                const backdrop = document.createElement('div');
+                backdrop.classList.add('backdrop');
+
+                backdrop.addEventListener('click', e =>
+                {
+                    navbar.classList.remove('sidebar-open');
+                    document.querySelector('.backdrop').remove();
+                });
+
+                document.querySelector('body').append(backdrop);
+
+            } else
+            {
+                document.querySelector('.backdrop').remove();
+            }
+        });
+    </script>
+
+</body>
+</html>
